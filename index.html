@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oeuf</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="svg/oeuf.svg" />
+
+</head>
+
+<body id="body">
+    <div id="erreur">
+        <h1 style="width: 80%;">Aïe il semblerait que votre support possède une largeur inférieure à 900 pixels, 
+            ce site a été conçu pour s'afficher au format desktop (ordinateur). Merci de changer d'appareil :)</h1>
+    </div>
+    <button class="btn-retour desactive" id="btn-retour">Retour</button>
+    <div class="retour-info desactive" id="retour-info">
+        <h3 class="retour-info-txt">Attention si vous retournez au menu, le timer sera remis à zéro !</h3>
+        <button class="btn-info" id="info-annul">Annuler</button>
+        <button class="btn-info" id="info-confirm">Aller au menu</button>
+    </div>
+    <section class="titles-container desactive">
+        <h1 class="title">Oeuf</h1>
+        <h2 class="subtitle" id="subtitle">- Sélectionner un mode de cuisson -</h2>
+    </section>
+
+    <div class="egg one load desactive" id="coque">
+        <img class="egg-img" src="svg/coque.svg" alt="">
+        <h3 class="egg-title">A la coque</h3>
+        <h4 class="egg-time">- 3 min -</h4>
+    </div>
+    <div class="egg two load desactive" id="mollet">
+        <img class="egg-img" src="svg/mollet.svg" alt="">
+        <h3 class="egg-title">Mollet</h3>
+        <h4 class="egg-time">- 6 min -</h4>
+    </div>
+    <div class="egg three load desactive" id="dur">
+        <img class="egg-img" src="svg/dur.svg" alt="">
+        <h3 class="egg-title">Dur</h3>
+        <h4 class="egg-time">- 9 min -</h4>
+    </div>
+
+    <div class="timer-container desactive" id="timer-container">
+        <h1 id="timer" class="timer">00:00</h1>
+        <button class="btn-timer" id="btn-timer">GO</button>
+        <button class="btn-timer" id="btn-reset">Reset</button>
+    </div>
+    <div class="para-container desactive" id="para-container">
+        <h2 class="para-title">- DEFINITION -</h2>
+        <p class="para-txt" id="def"></p>
+        <br>
+    </div>
+    <script src="app.js"></script>
+    <audio id="audio" src="timer-sound.mp3"></audio>
+</body>
+
+</html>
