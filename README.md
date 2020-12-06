@@ -1,6 +1,6 @@
 # Oeuf
 
-Voici le lien vers le site : https://alexandre91300.github.io/oeuf/
+Voici le lien vers le site : https://alexandre91300.github.io/Oeuf/
 
 Sur Oeuf vous pourrez apprendre à cuire des oeufs à la coque, mollets ou durs.
 
