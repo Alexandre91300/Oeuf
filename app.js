@@ -42,49 +42,66 @@ function timerInit(m) {
 }
 
 // EVENEMENT
-
-
+var eggClicked = false;
 coque.addEventListener("click", () => {
-    definition.innerHTML = "Un œuf à la coque est un œuf cuit de telle sorte que le blanc soit solide et le jaune liquide.";
-    coque.classList.add("this-egg");
-    mollet.classList.add("coque");
-    dur.classList.add("coque");
-    subtitle.classList.add("subtitle-anim");
-    retour.classList.add("btn-retour-anim");
-    timerContainer.classList.add("timer-container-anim");
-    timerInit(3);
-    time = 3;
-    addPara();
+
+    if (!eggClicked) {
+        definition.innerHTML = "Un œuf à la coque est un œuf cuit de telle sorte que le blanc soit solide et le jaune liquide.";
+        coque.classList.add("this-egg");
+        mollet.classList.add("coque");
+        dur.classList.add("coque");
+        subtitle.classList.add("subtitle-anim");
+        retour.classList.add("btn-retour-anim");
+        timerContainer.classList.add("timer-container-anim");
+        timerInit(3);
+        time = 3;
+        addPara();
+        eggClicked = true;
+    };
+
 
 });
 
 mollet.addEventListener("click", () => {
-    definition.innerHTML = "L'œuf mollet est un œuf cuit plus longtemps qu'un œuf à la coque et moins longtemps qu'un œuf dur, de façon que le jaune soit épais, mais encore coulant.";
 
-    coque.classList.add("mollet");
-    mollet.classList.add("this-egg");
-    dur.classList.add("mollet");
-    subtitle.classList.add("subtitle-anim");
-    retour.classList.add("btn-retour-anim");
-    timerContainer.classList.add("timer-container-anim");
-    timerInit(6);
-    time = 6;
-    addPara();
 
+    if (!eggClicked) {
+        definition.innerHTML = "L'œuf mollet est un œuf cuit plus longtemps qu'un œuf à la coque et moins longtemps qu'un œuf dur, de façon que le jaune soit épais, mais encore coulant.";
+
+        coque.classList.add("mollet");
+        mollet.classList.add("this-egg");
+        dur.classList.add("mollet");
+        subtitle.classList.add("subtitle-anim");
+        retour.classList.add("btn-retour-anim");
+        timerContainer.classList.add("timer-container-anim");
+        timerInit(6);
+
+        time = 6;
+        addPara();
+
+        eggClicked = true;
+    };
 
 
 });
 dur.addEventListener("click", () => {
-    definition.innerHTML = "Un œuf dur est une préparation de l'œuf qui permet de consommer sous forme solide le jaune et le blanc.";
-    dur.classList.add("this-egg");
-    mollet.classList.add("dur");
-    coque.classList.add("dur");
-    subtitle.classList.add("subtitle-anim");
-    retour.classList.add("btn-retour-anim");
-    timerContainer.classList.add("timer-container-anim");
-    timerInit(9);
-    time = 9;
-    addPara();
+
+    if (!eggClicked) {
+        definition.innerHTML = "Un œuf dur est une préparation de l'œuf qui permet de consommer sous forme solide le jaune et le blanc.";
+        dur.classList.add("this-egg");
+        mollet.classList.add("dur");
+        coque.classList.add("dur");
+        subtitle.classList.add("subtitle-anim");
+        retour.classList.add("btn-retour-anim");
+        timerContainer.classList.add("timer-container-anim");
+        timerInit(9);
+
+        time = 9;
+        addPara();
+
+        eggClicked = true;
+
+    }
 
 });
 
@@ -93,6 +110,7 @@ retour.addEventListener('click', () => {
     if (wasClicked) {
         retourInfo.classList.add("retour-info-anim");
     } else {
+        wasClicked = false;
         subtitle.classList.remove("subtitle-anim");
         retour.classList.remove("btn-retour-anim");
 
@@ -127,6 +145,7 @@ retour.addEventListener('click', () => {
         wasClicked = false;
 
         paraContainer.classList.remove("para-container-anim");
+        eggClicked = false;
 
 
     }
@@ -138,9 +157,11 @@ annulInfo.addEventListener("click", () => {
 });
 
 confirmInfo.addEventListener("click", () => {
+    eggClicked = false;
     retourInfo.classList.remove("retour-info-anim");
     subtitle.classList.remove("subtitle-anim");
     retour.classList.remove("btn-retour-anim");
+    wasClicked = false;
 
     // COQUE
     coque.classList.remove("this-egg");
@@ -229,8 +250,8 @@ function timer(minute, seconde) {
             sec--;
         }
         if (sec == 0 && min == 0 || timerStop === true) {
-            if(sec == 0 && min == 0){
-            playAudio();
+            if (sec == 0 && min == 0) {
+                playAudio();
             }
             clearInterval(myFunc);
         };
@@ -239,7 +260,6 @@ function timer(minute, seconde) {
         } else {
             document.getElementById("timer").innerHTML = "0" + min + ":" + sec;
         };
-        console.log("test");
     }, 1000);
 };
 
@@ -249,7 +269,7 @@ function addPara() {
     paraContainer.classList.add("para-container-anim");
 };
 
-function playAudio(){
+function playAudio() {
     const audio = document.getElementById("audio");
     audio.play();
 }
