@@ -119,6 +119,7 @@ body {
     height: 242px;
     position: fixed;
     cursor: pointer;
+    top: 50%;
 }
 
 .egg:hover {
